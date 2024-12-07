@@ -4,150 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verschmutzung der Meere</title>
-    <!-- Externe Schriftarten (futuristisch / Gaming-Stil) -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Globaler Reset und Body-Stil */
-        body {
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: black;
-            color: white;
-            position: relative;
-        }
-
-        /* Hintergrundbild (Meer mit Müll) */
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(50%) blur(3px);
-            background-image: url('https://img.freepik.com/fotos-kostenlos/naturlandschaft-mit-schwarzem-sand-am-strand_23-2151380327.jpg'); /* Hier den Link zum Bild einfügen */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Header-Stil */
-        .header {
-            color: #ffffff;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 48px;
-            text-align: center;
-            padding: 50px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background-color: rgba(0, 0, 0, 0.5);
-            margin-top: 0;
-            text-shadow: 0 0 20px rgb(255, 0, 255), 0 0 10px rgb(0, 255, 255);
-        }
-
-        /* Hauptinhalt */
-        .main-content {
-            padding: 40px;
-            background-color: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            margin: 20px;
-        }
-
-        h2 {
-            font-size: 32px;
-            color: rgb(255, 0, 255);
-            text-transform: uppercase;
-            text-align: center;
-            letter-spacing: 2px;
-            font-family: 'Press Start 2P', cursive;
-            text-shadow: 0 0 15px rgb(0, 255, 255), 0 0 10px rgb(255, 0, 255);
-        }
-
-        /* Frage-Sektionen */
-        .question-section {
-            margin-top: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgb(128, 128, 128);
-        }
-
-        .question-section h3 {
-            color: rgb(0, 255, 255);
-            font-size: 28px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgb(255, 255, 0), 0 0 10px rgb(0, 255, 255);
-        }
-
-        /* Frage-Antwort-Container */
-        .question-answer {
-            background-color: rgb(34, 34, 34);
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-            max-height: 0; /* Anfangs ist der Text verborgen */
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth Transition für Text */
-        }
-
-        /* Sichtbarkeit der Antwort beim Anzeigen */
-        .question-answer.show {
-            max-height: 1000px; /* Erlaubt das vollständige Anzeigen des Texts */
-            opacity: 1; /* Antwort wird sichtbar */
-        }
-
-        .button {
-            background: linear-gradient(45deg, rgb(0, 255, 255), rgb(255, 0, 255));
-            color: white;
-            padding: 12px;
-            font-size: 22px;
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            margin: 15px 0;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .button:hover {
-            background: linear-gradient(45deg, rgb(255, 0, 255), rgb(0, 255, 255));
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Hover-Effekte für Bilder */
-        .image-container img {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 20px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-    </style>
+    <link href="./assets/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Hintergrundbild (Meer mit Müll) -->
@@ -274,17 +131,11 @@
 </div>
 
 
-    <div class="footer">
-        © AdrianRZG #Für schönere und säubere Gewässer
-    </div>
+<div class="footer">
+    © AdrianRZG #Für schönere und säubere Gewässer
+</div>
+<script src="./assets/script.js"></script>
 
-    <script>
-        // Funktion zum Umschalten der Antwort auf eine Frage
-        function toggleAnswer(id) {
-            const answer = document.getElementById(id);
-            answer.classList.toggle('show'); // Umschalten der Klasse 'show'
-        }
-    </script>
 </body>
 </html>
 

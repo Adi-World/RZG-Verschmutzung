@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verschmutzung der Meere</title>
+    <!-- Externe Schriftarten (futuristisch / Gaming-Stil) -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Globaler Reset und Body-Stil */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: black;
+            color: white;
+            position: relative;
+        }
+
+        /* Hintergrundbild (Meer mit Müll) */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(50%) blur(3px);
+            background-image: url('https://img.freepik.com/fotos-kostenlos/naturlandschaft-mit-schwarzem-sand-am-strand_23-2151380327.jpg'); /* Hier den Link zum Bild einfügen */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Header-Stil */
+        .header {
+            color: #ffffff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 48px;
+            text-align: center;
+            padding: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-top: 0;
+            text-shadow: 0 0 20px rgb(255, 0, 255), 0 0 10px rgb(0, 255, 255);
+        }
+
+        /* Hauptinhalt */
+        .main-content {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            margin: 20px;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: rgb(255, 0, 255);
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 2px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 0 0 15px rgb(0, 255, 255), 0 0 10px rgb(255, 0, 255);
+        }
+
+        /* Frage-Sektionen */
+        .question-section {
+            margin-top: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgb(128, 128, 128);
+        }
+
+        .question-section h3 {
+            color: rgb(0, 255, 255);
+            font-size: 28px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgb(255, 255, 0), 0 0 10px rgb(0, 255, 255);
+        }
+
+        /* Frage-Antwort-Container */
+        .question-answer {
+            background-color: rgb(34, 34, 34);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            max-height: 0; /* Anfangs ist der Text verborgen */
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth Transition für Text */
+        }
+
+        /* Sichtbarkeit der Antwort beim Anzeigen */
+        .question-answer.show {
+            max-height: 1000px; /* Erlaubt das vollständige Anzeigen des Texts */
+            opacity: 1; /* Antwort wird sichtbar */
+        }
+
+        .button {
+            background: linear-gradient(45deg, rgb(0, 255, 255), rgb(255, 0, 255));
+            color: white;
+            padding: 12px;
+            font-size: 22px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            margin: 15px 0;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .button:hover {
+            background: linear-gradient(45deg, rgb(255, 0, 255), rgb(0, 255, 255));
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Hover-Effekte für Bilder */
+        .image-container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hintergrundbild (Meer mit Müll) -->
+    <div class="background-image"></div>
+
+    <div class="header">
+        Verschmutzung der Meere – Ein globales Problem
+    </div>
+
+    <div class="main-content">
+        <h2>Wie verschmutzen wir unsere Ozeane?</h2>
+        <p>Unsere Ozeane sind in Gefahr. Jahr für Jahr gelangen Millionen von Tonnen Plastikmüll in die Meere, was gravierende Auswirkungen auf die tierwelt und das Ökosystem sowie der Menschen die am und vom meer leben. Die Ursachen für diese Verschmutzung sind vielfältig und betreffen uns alle.</p>
+        
+        <!-- Frage 1: Gründe der Verschmutzung -->
+        <div class="question-section">
+            <button class="button" onclick="toggleAnswer('reasons')">Gründe der Verschmutzung der Meere</button>
+            <div id="reasons" class="question-answer">
+                <p>Es gibt viele Gründe für die Verschmutzung der Meere:</p>
+                <ul>
+                    <li>Plastikmüll aus Haushalten und Industrie.</li>
+                    <li>Chemikalien und Abwässer aus der Landwirtschaft und Industrie.</li>
+                    <li>Abfälle aus der Fischerei und dem Schiffsverkehr.</li>
+                    <li>Ölverschmutzungen und Schadstoffe aus der Industrie.</li>
+                    <li>Ilegalle abfall entsorgung.</li>
+                    <li>Korruption.</li>
+                    <li>Fehlende Infrastruktur.</li>
+                    <li>Plastik besthet aus z.B erdöl</li>
+                </ul>
+                <p>Der größte Teil des Plastikmülls im Meer stammt aus Plastikflaschen, Tüten und Verpackungen.</p>
+            </div>
+            <!-- Bild 1: Gründe der Verschmutzung -->
+            <div class="image-container">
+                <img src="https://worldoceanreview.com/de/wp-content/uploads/2021/11/wor7_k6a_abb_6-18_b950.jpg" alt="Plastikmüll aus verschiedenen Quellen">
+            </div>
+        </div>
+
+        <!-- Frage 2: Fakten zu Plastik -->
+        <div class="question-section">
+            <button class="button" onclick="toggleAnswer('plastic_facts')">Plastik im Meer: Fakten und Zahlen</button>
+            <div id="plastic_facts" class="question-answer">
+                <p>Plastik stellt eine der größten Bedrohungen für die Meeresumwelt dar:</p>
+                <ul>
+                    <li>Jährlich gelangen mehr als 8 Millionen Tonnen Plastik in die Ozeane.</li>
+                    <li>ca. 100-200 Millionen Tonnen Müll im den Weltmeeren. </li>
+                    <li>Das meiste Plastik kommt durch Flüsse, Wind und unsachgemäße Entsorgung ins Meer.</li>
+                    <li>Plastik kann Hunderte von Jahren im Meer überdauern und zerfällt nur sehr langsam.</li>
+                </ul>
+            </div>
+            <!-- Bild 2: Plastik im Meer -->
+            <div class="image-container">
+                <img src="https://www.planet-wissen.de/natur/meer/atlantik/atlantikplastikmaurigjpg100~_v-gseagaleriexl.jpg" alt="Plastikmüll im Ozean">
+            </div>
+        </div>
+
+        <!-- Frage 3: Lösungen zur Plastikverschmutzung -->
+<div class="question-section">
+    <button class="button" onclick="toggleAnswer('plastic_solutions')">Lösungsansätze</button>
+    <div id="plastic_solutions" class="question-answer">
+        <p>Es gibt verschiedene Lösungen, um die Plastikverschmutzung zu bekämpfen:</p>
+        <ul>
+            <li>Die 3 Re</li>
+            <li>REduse</li>
+            <li>REuse </li>
+            <li>REcycle </li>
+        </ul>
+    </div>
+    <!-- Bild 3: Recycling und Lösungen -->
+    <div class="image-container">
+        <img src="https://www.recht-hilfreich.de/wp-content/uploads/2024/09/Designer-6.jpeg" alt="Recycling von Plastik">
+    </div>
+</div>
+
+
+        <!-- Frage 4: Mikroplastik -->
+        <div class="question-section">
+            <button class="button" onclick="toggleAnswer('microplastic')">Was ist Mikroplastik?</button>
+            <div id="microplastic" class="question-answer">
+                <p>Mikroplastik sind winzige Plastikpartikel, die durch den Zerfall von größeren Plastikstücken entstehen oder als Mikroperlen in Kosmetika und Reinigungsmitteln vorkommen. Mikroplastik hat große Auswirkungen auf die Umwelt:</p>
+                <ul>
+                    <li>Fische und Meeresbewohner verschlucken Mikroplastik, was ihre Gesundheit schädigt.</li>
+                    <li>Es gelangt über die Nahrungskette zurück zu uns Menschen.</li>
+                    <li>Zur zeit kann noch nicht gesagt werden was Mikroplastik im menschlichen Körper anrichtet.</li>
+                </ul>
+            </div>
+            <!-- Bild 4: Mikroplastik im Meer -->
+            <div class="image-container">
+                <img src="https://www.igb-berlin.de/sites/default/files/styles/mainimage_content/public/media-images/mainimages/shutterstock_1507315184.jpg?itok=OV01f6O1" alt="Mikroplastik im Ozean">
+            </div>
+        </div>
+
+        <!-- Frage 5: Was wird Getan -->
+        <div class="question-section">
+            <button class="button" onclick="toggleAnswer('solutions')">Was wird getan, um das Problem zu lösen?</button>
+            <div id="solutions" class="question-answer">
+                <p>Es gibt viele Initiativen, um die Verschmutzung der Meere zu bekämpfen:</p>
+                <ul>
+                    <li>Recycling und Reduktion von Plastikmüll</li>
+                    <li>Gesetzgebung zur Begrenzung von Einwegplastik</li>
+                    <li>Aufklärung und Bildung der Öffentlichkeit</li>
+                    <li>Plastik barriere im Fluss</li>
+                    <li>Weltkonzerne machen zu wenig</li>
+                
+                </ul>
+                <p>Es ist entscheidend, dass jeder Einzelne von uns dazu beiträgt, die Meere zu schützen.</p>
+            </div>
+            <!-- Bild 5: Lösungsansätze -->
+            <div class="image-container">
+                <img src="https://www.costanachrichten.com/assets/images/3/278/3278320-zwei-arbeiter-inspizieren-einen-flussdamm-in-guardamar-an-dem-sich-muell-anhaeuft-44ea.jpg" alt="Reinigung des Ozeans">
+            </div>
+        </div>
+    </div>
+
+  <!-- Warum habe ich dieses Thema gewählt -->
+<div class="question-section">
+    <button class="button" onclick="toggleAnswer('why_chosen')">Warum habe ich dieses Thema gewählt?</button>
+    <div id="why_chosen" class="question-answer">
+        <p>Die Verschmutzung der Meere ist eines der Grössten Problem unserer Zeit.</p>
+        <p>Jeder kann mit etwas kleinem dazu beitragen!!!</p>
+    </div>
+    <!-- Bild 6: Warum dieses Thema gewählt -->
+    <div class="image-container">
+        <img src="https://imgl.krone.at/scaled/1882012/v684d93/full.jpg?imop=FeatureCrop,width=630,height=356" alt="Warum dieses Thema gewählt wurde">
+    </div>
+</div>
+
+
+    <div class="footer">
+        © AdrianRZG #Für schönere und säubere Gewässer
+    </div>
+
+    <script>
+        // Funktion zum Umschalten der Antwort auf eine Frage
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('show'); // Umschalten der Klasse 'show'
+        }
+    </script>
+</body>
+</html>
+
